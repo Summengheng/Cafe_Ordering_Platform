@@ -3,7 +3,7 @@ import Logo from "../assets/logo.svg";
 
 const NavBar = () => {
   return (
-    <nav className="h-18 flex flex-row items-center justify-between px-20 w-screen">
+    <nav className="h-18 flex flex-row items-center justify-between px-20">
       {/* Header */}
       <header className="flex flex-row items-center">
         <img src={Logo} alt="Logo" className="h-20 w-10" />

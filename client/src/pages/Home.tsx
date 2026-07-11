@@ -4,7 +4,7 @@ import Footer from "../layouts/Footer";
 
 const Home = () => {
   return (
-    <div className="h-screen w-screen">
+    <div className="overflow-x-hidden">
       <NavBar />
       <Outlet />
       <Footer />
