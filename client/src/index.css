@@ -6,6 +6,13 @@ body {
 .nav-item {
   @apply mx-4 cursor-pointer;
 }
+.footer-bottom-link {
+  @apply hover:cursor-pointer hover:text-blue-600;
+}
+.legal-page-link,
+.footer-important-link {
+  @apply underline;
+}
 
 @layer base {
   body {
