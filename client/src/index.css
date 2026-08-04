@@ -4,7 +4,7 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .nav-item {
-  @apply mx-4 cursor-pointer;
+  @apply px-3 py-2 text-white font-medium transition-colors duration-200 hover:text-[#efb848];
 }
 .footer-bottom-link {
   @apply hover:cursor-pointer hover:text-blue-600;

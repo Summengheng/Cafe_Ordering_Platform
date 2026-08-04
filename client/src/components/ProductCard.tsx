@@ -6,7 +6,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ imageUrl, title, price }: ProductCardProps) => {
   return (
-    <div className="w-45 h-auto rounded-xl flex flex-col bg-[#0C0C12]">
+    <div className="w-45 h-auto rounded-xl flex flex-col bg-gray-900/70">
       {/* image */}
       <img
         src={imageUrl}
@@ -24,7 +24,7 @@ const ProductCard = ({ imageUrl, title, price }: ProductCardProps) => {
       {/* Price and Add Button */}
       <div className="flex justify-between items-center px-3 mb-2">
         <p>{price}</p>
-        <button className="py-1 px-2.5 bg-gray-600/25 rounded text-secondary font-semibold">
+        <button className="py-1 px-2.5 bg-gray-600/25 rounded text-secondary font-semibold hover:cursor-pointer">
           Add
         </button>
       </div>
