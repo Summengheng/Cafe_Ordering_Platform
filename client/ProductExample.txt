@@ -1,0 +1,35 @@
+<ProductCard
+            imageUrl="https://i.pinimg.com/1200x/d3/32/fd/d332fd633190b268c74c5ffe21ab98bb.jpg"
+            title="Cappuccino"
+            price="19$"
+          />
+          <ProductCard
+            imageUrl="https://i.pinimg.com/736x/29/3e/e5/293ee5df6bcbbb54d8bdf7960c5444d0.jpg"
+            title="Cheesecake aux fraises"
+            price="19$"
+          />
+          <ProductCard
+            imageUrl="https://i.pinimg.com/1200x/30/29/3f/30293f670a7fb51be8ad92b05bf0a566.jpg"
+            title="vanilla cake "
+            price="19$"
+          />
+          <ProductCard
+            imageUrl="https://i.pinimg.com/1200x/bd/de/a0/bddea0e4dbe2f7a9cffa8cab5194cb74.jpg"
+            title="Ice Latte"
+            price="19$"
+          />
+          <ProductCard
+            imageUrl="https://i.pinimg.com/1200x/d3/32/fd/d332fd633190b268c74c5ffe21ab98bb.jpg"
+            title="Cappuccino"
+            price="19$"
+          />
+          <ProductCard
+            imageUrl="https://i.pinimg.com/1200x/d3/32/fd/d332fd633190b268c74c5ffe21ab98bb.jpg"
+            title="Cappuccino"
+            price="19$"
+          />
+          <ProductCard
+            imageUrl="https://i.pinimg.com/1200x/d3/32/fd/d332fd633190b268c74c5ffe21ab98bb.jpg"
+            title="Cappuccino"
+            price="19$"
+          />
