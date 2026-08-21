@@ -5,29 +5,71 @@ import CategoryCard from "../components/cards/CategoryCard";
 import DownloadApp from "../assets/downloadApp.png";
 import DownloadAppImage from "../assets/DownloadAppImage.png";
 import PartnerWithUs from "../components/cards/PartnerWithUs";
+import { useState } from "react";
+import FrequentQuestion from "../components/tabs/FrequentQuestion";
+import WhoWeAre from "../components/tabs/WhoWeAre";
+import HelpSupport from "../components/tabs/HelpSupport";
+import PartnerProgram from "../components/tabs/PartnerProgram";
 
 const Main = () => {
+  const [activeTabs, setActiveTabs] = useState<string>("FAQ");
+
+  const tabs = [
+    { id: "faq", label: "FAQ" },
+    { id: "who", label: "Who we are" },
+    { id: "partner", label: "Partner Program" },
+    { id: "support", label: "Help & Support" },
+  ];
+
   return (
     <div className="flex flex-col justify-center items-center">
       <header
-        className="bg-cover flex flex-col justify-center ps-5 bg-center w-[80%] rounded-2xl "
+        className="
+    bg-cover bg-center
+    flex flex-col justify-center
+    ps-5 sm:ps-8 md:ps-10
+    w-full max-w-[1200px]
+    h-[400px] sm:h-[450px] md:h-[500px]
+    rounded-2xl
+    mx-auto
+  "
         style={{
-          height: "500px",
-          width: "1200px",
           backgroundImage: `url(${HeroImage})`,
         }}
       >
-        <div className="w-[100] flex flex-col justify-center gap-y-2.5">
-          <h1 className="text-5xl text-amber-50 flex flex-col gap-y-2 font-bold ">
+        <div className="w-full flex flex-col justify-center gap-y-2.5">
+          <h1
+            className="
+        text-3xl sm:text-4xl md:text-5xl
+        text-amber-50
+        flex flex-col gap-y-1 sm:gap-y-2
+        font-bold
+      "
+          >
             Delicious Coffee
             <span className="text-secondary">delivered to you</span>
           </h1>
-          <p className="w-65">
+
+          <p className="w-full max-w-[320px] text-sm sm:text-base">
             Order your favorite meals & drinks from{" "}
             <span className="font-semibold text-[#b08ee0]">BrewCafe</span>
           </p>
-          <button className="flex justify-center w-38 px-2 py-2 my-2 bg-secondary text-gray-950 font-bold rounded cursor-pointer">
-            Order Now <MoveRight style={{ paddingLeft: "5px" }} />
+
+          <button
+            className="
+        flex justify-center items-center
+        w-fit
+        px-4 py-2
+        my-2
+        bg-secondary
+        text-gray-950
+        font-bold
+        rounded
+        cursor-pointer
+      "
+          >
+            Order Now
+            <MoveRight className="ml-1" />
           </button>
         </div>
       </header>
@@ -134,6 +176,30 @@ const Main = () => {
             headerText="Avail exclusive perks"
             redirectLink="#"
           />
+        </section>
+        <section>
+          <div className="flex justify-between px-3 py-2">
+            <h2 className="font-semibold text-2xl">Know More About Us!</h2>
+            <ul className="flex justify-between px-2 gap-3">
+              {tabs.map((obj) => {
+                return (
+                  <button
+                    key={obj.id}
+                    className={`about_us_section_link ${activeTabs == obj.id ? "border border-secondary rounded-full" : ""}`}
+                    onClick={() => setActiveTabs(obj.id)}
+                  >
+                    {obj.label}
+                  </button>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="bg-gray-900/50 ms-5 me-8 rounded-xl shadow-md p-8 text-black">
+            {activeTabs === "faq" && <FrequentQuestion />}
+            {activeTabs === "who" && <WhoWeAre />}
+            {activeTabs === "partner" && <PartnerProgram />}
+            {activeTabs === "support" && <HelpSupport />}
+          </div>
         </section>
       </main>
     </div>

@@ -3,9 +3,11 @@
 body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-.nav-item {
-  @apply px-3 py-2 text-white font-medium transition-colors duration-200 hover:text-[#efb848];
+.nav-item,
+.about_us_section_link {
+  @apply px-3 py-2 text-white font-medium transition-colors duration-200 cursor-pointer hover:text-[#efb848];
 }
+
 .footer-bottom-link {
   @apply hover:cursor-pointer hover:text-blue-600;
 }
