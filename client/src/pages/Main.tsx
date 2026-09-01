@@ -1,38 +1,36 @@
 import HeroImage from "../assets/hero.png";
 import { MoveRight } from "lucide-react";
-import CafeCard from "../components/cards/CafeCard";
-import CategoryCard from "../components/cards/CategoryCard";
 import DownloadApp from "../assets/downloadApp.png";
 import DownloadAppImage from "../assets/DownloadAppImage.png";
-import PartnerWithUs from "../components/cards/PartnerWithUs";
 import { useState } from "react";
-import FrequentQuestion from "../components/tabs/FrequentQuestion";
-import WhoWeAre from "../components/tabs/WhoWeAre";
-import HelpSupport from "../components/tabs/HelpSupport";
-import PartnerProgram from "../components/tabs/PartnerProgram";
+import {
+  FrequentQuestion,
+  HelpSupport,
+  PartnerProgram,
+  WhoWeAre,
+} from "../components/tabs/index";
+import { cafes, Categories, stats, tabs } from "../data/Main";
+import {
+  CafeCard,
+  CategoryCard,
+  PartnerWithUs,
+} from "../components/cards/index";
 
 const Main = () => {
-  const [activeTabs, setActiveTabs] = useState<string>("FAQ");
-
-  const tabs = [
-    { id: "faq", label: "FAQ" },
-    { id: "who", label: "Who we are" },
-    { id: "partner", label: "Partner Program" },
-    { id: "support", label: "Help & Support" },
-  ];
+  const [activeTabs, setActiveTabs] = useState<string>("faq");
 
   return (
     <div className="flex flex-col justify-center items-center">
       <header
         className="
-    bg-cover bg-center
-    flex flex-col justify-center
-    ps-5 sm:ps-8 md:ps-10
-    w-full max-w-[1200px]
-    h-[400px] sm:h-[450px] md:h-[500px]
-    rounded-2xl
-    mx-auto
-  "
+          bg-cover bg-center
+          flex flex-col justify-center
+          ps-5 sm:ps-8 md:ps-10
+          w-full max-w-[1200px]
+          h-[400px] sm:h-[450px] md:h-[500px]
+          rounded-2xl
+          mx-auto
+        "
         style={{
           backgroundImage: `url(${HeroImage})`,
         }}
@@ -79,21 +77,15 @@ const Main = () => {
             Up to 40% 🎉 BrewCafe Exclusive Deals
           </h2>
           <div className="cards grid grid-cols-1 sm:grid:cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 my-5 mx-3 pr-6">
-            <CafeCard
-              backgroundImage="https://i.pinimg.com/1200x/9e/56/0c/9e560cdb73ae2abfd80577e093f8335b.jpg"
-              discount={40}
-              title="Ice Latte"
-            />
-            <CafeCard
-              backgroundImage="https://i.pinimg.com/736x/6f/e1/11/6fe111d94ca6ab10e81c9bd96328a82d.jpg"
-              discount={20}
-              title="Iced Cappuccino"
-            />
-            <CafeCard
-              backgroundImage="https://i.pinimg.com/1200x/fb/1a/bd/fb1abd544695ba287a2837701256a875.jpg"
-              discount={17}
-              title="Hot Latte"
-            />
+            {cafes.map((category) => {
+              return (
+                <CafeCard
+                  backgroundImage={category.backgroundImage}
+                  discount={category.discount}
+                  title={category.title}
+                />
+              );
+            })}
           </div>
         </section>
         <section className="my-3">
@@ -101,26 +93,14 @@ const Main = () => {
             BrewCafe Popular Categories ☕
           </h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-4 mx-3 my-2 pr-6">
-            <CategoryCard
-              backgroundImage="https://i.pinimg.com/736x/f0/65/5f/f0655f2737da76be9b4ac435c65e3d9b.jpg"
-              title="Espresso Based"
-            />
-            <CategoryCard
-              backgroundImage="https://i.pinimg.com/1200x/e1/b2/45/e1b245b8a12e75b61252f24719ec52ad.jpg"
-              title="Brewed Coffee"
-            />
-            <CategoryCard
-              backgroundImage="https://i.pinimg.com/736x/22/8b/72/228b72a03cb98c19063193cf0188a6a3.jpg"
-              title="Flavored Coffee"
-            />
-            <CategoryCard
-              backgroundImage="https://i.pinimg.com/1200x/11/19/d0/1119d0d1a77a798abfab1844a76bffdb.jpg"
-              title="Seasonal Coffee"
-            />
-            <CategoryCard
-              backgroundImage="https://i.pinimg.com/736x/67/93/3b/67933bd8c89f48f5588c716b430c581f.jpg"
-              title="Milk-Based Coffee"
-            />
+            {Categories.map((category) => {
+              return (
+                <CategoryCard
+                  backgroundImage={category.backgroundImage}
+                  title={category.title}
+                />
+              );
+            })}
           </div>
         </section>
         <section className="w-full flex justify-center py-16 px-4">
@@ -178,14 +158,23 @@ const Main = () => {
           />
         </section>
         <section>
-          <div className="flex justify-between px-3 py-2">
-            <h2 className="font-semibold text-2xl">Know More About Us!</h2>
-            <ul className="flex justify-between px-2 gap-3">
+          {/* Header + Tabs */}
+          <div className="flex flex-col gap-4 px-3 py-2 md:flex-row md:items-center md:justify-between">
+            <h2 className="text-xl font-semibold sm:text-2xl">
+              Know More About Us!
+            </h2>
+
+            {/* Tabs */}
+            <ul className="flex w-full gap-2 overflow-x-auto pb-1 md:w-auto md:gap-3">
               {tabs.map((obj) => {
                 return (
                   <button
                     key={obj.id}
-                    className={`about_us_section_link ${activeTabs == obj.id ? "border border-secondary rounded-full" : ""}`}
+                    className={`about_us_section_link shrink-0 whitespace-nowrap ${
+                      activeTabs === obj.id
+                        ? "rounded-full border border-secondary"
+                        : ""
+                    }`}
                     onClick={() => setActiveTabs(obj.id)}
                   >
                     {obj.label}
@@ -194,11 +183,26 @@ const Main = () => {
               })}
             </ul>
           </div>
-          <div className="bg-gray-900/50 ms-5 me-8 rounded-xl shadow-md p-8 text-black">
+
+          {/* Content */}
+          <div className="mx-3 rounded-xl bg-gray-900/50 p-4 shadow-md sm:mx-5 sm:p-6 md:me-8 md:p-8">
             {activeTabs === "faq" && <FrequentQuestion />}
             {activeTabs === "who" && <WhoWeAre />}
             {activeTabs === "partner" && <PartnerProgram />}
             {activeTabs === "support" && <HelpSupport />}
+          </div>
+        </section>
+        <section>
+          <div className="proof_card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden">
+            {stats.map((item, index) => (
+              <div
+                key={index}
+                className={`p-6 transition-all duration-300 ease-in-out hover:cursor-pointer  ${index % 2 === 0 ? "bg-gray-900/30 text-white hover:bg-gray-900/70" : "bg-white/80 text-gray-900 hover:bg-white"}`}
+              >
+                <h2 className="count">{item.count}</h2>
+                <p className="title">{item.title}</p>
+              </div>
+            ))}
           </div>
         </section>
       </main>

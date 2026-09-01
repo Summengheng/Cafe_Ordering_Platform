@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router";
-import Home from "./pages/Home";
-import Restaurants from "./pages/Restaurants";
-import TrackOrder from "./pages/TrackOrder";
-import Main from "./pages/Main";
-import Menu from "./pages/Menu";
-import Offers from "./pages/Offers";
+
+import {
+  Home,
+  Restaurants,
+  TrackOrder,
+  Menu,
+  Main,
+  Offers,
+} from "./pages/index";
 
 function App() {
   return (

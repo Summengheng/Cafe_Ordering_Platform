@@ -8,6 +8,14 @@ body {
   @apply px-3 py-2 text-white font-medium transition-colors duration-200 cursor-pointer hover:text-[#efb848];
 }
 
+.proof_card div {
+  @apply flex justify-center flex-col items-center mx-5 my-10 rounded-2xl;
+}
+
+.proof_card .count {
+  @apply text-3xl font-bold;
+}
+
 .footer-bottom-link {
   @apply hover:cursor-pointer hover:text-blue-600;
 }
